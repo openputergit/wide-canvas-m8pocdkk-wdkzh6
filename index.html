@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarWash Connect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        .map-container { height: 300px; background: #e2e8f0; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white p-4 fixed w-full top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">CarWash Connect</h1>
+            <nav>
+                <button id="loginBtn" class="bg-white text-blue-600 px-4 py-2 rounded-full font-medium">Login</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto pt-20 p-4">
+        <!-- User Section -->
+        <section id="userSection" class="mt-8">
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+                <h2 class="text-2xl font-bold mb-4">Find Nearby Car Wash Centers</h2>
+                <div class="space-y-4">
+                    <input type="text" placeholder="Enter your location" class="w-full p-3 border rounded-lg" id="locationInput">
+                    <div class="map-container rounded-lg"></div>
+                    <button id="findWashCenters" class="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition">
+                        Find Car Wash Centers
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Provider Section -->
+        <section id="providerSection" class="mt-8 bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-2xl font-bold mb-4">Register as Service Provider</h2>
+            <form id="providerForm" class="space-y-4">
+                <div>
+                    <label class="block text-gray-700 mb-2">Business Name</label>
+                    <input type="text" class="w-full p-3 border rounded-lg" required>
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-2">Address</label>
+                    <input type="text" class="w-full p-3 border rounded-lg" required>
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-2">Contact Number</label>
+                    <input type="tel" class="w-full p-3 border rounded-lg" required>
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-2">Registration Fee</label>
+                    <p class="text-lg font-semibold">₹1,000</p>
+                </div>
+                <button type="submit" class="w-full bg-green-600 text-white py-3 rounded-lg font-medium hover:bg-green-700 transition">
+                    Register Now
+                </button>
+            </form>
+        </section>
+
+        <!-- Features Section -->
+        <section class="mt-8 grid md:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <i class="bi bi-geo-alt text-3xl text-blue-600"></i>
+                <h3 class="text-xl font-bold mt-4">Location Based</h3>
+                <p class="text-gray-600 mt-2">Find the nearest car wash centers in your area</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <i class="bi bi-bell text-3xl text-blue-600"></i>
+                <h3 class="text-xl font-bold mt-4">Real-time Notifications</h3>
+                <p class="text-gray-600 mt-2">Get instant updates on your booking status</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <i class="bi bi-star text-3xl text-blue-600"></i>
+                <h3 class="text-xl font-bold mt-4">Quality Service</h3>
+                <p class="text-gray-600 mt-2">Verified service providers at your service</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Simulate location search
+        document.getElementById('findWashCenters').addEventListener('click', function() {
+            const location = document.getElementById('locationInput').value;
+            if (location) {
+                alert('Searching for car wash centers near: ' + location);
+                // Here you would typically make an API call to find nearby centers
+            } else {
+                alert('Please enter your location');
+            }
+        });
+
+        // Provider registration
+        document.getElementById('providerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Registration submitted! Please complete the payment of ₹1,000 to activate your account.');
+        });
+
+        // Login functionality
+        document.getElementById('loginBtn').addEventListener('click', function() {
+            alert('Login functionality will be implemented here');
+        });
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
